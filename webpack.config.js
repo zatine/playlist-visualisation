@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'none',
@@ -17,6 +18,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Playlist Visualisation',
     }),
+    new Dotenv(),
   ],
   module: {
     rules: [

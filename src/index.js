@@ -1,3 +1,3 @@
 import './styles/main.css';
 
-console.log('Test');
+console.log(`Your client ID is ${process.env.CLIENT_ID}`);
