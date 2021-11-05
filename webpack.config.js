@@ -17,6 +17,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Playlist Visualisation',
+      template: './src/index.html',
     }),
     new Dotenv(),
   ],
