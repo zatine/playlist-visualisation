@@ -1,3 +1,101 @@
+:root {
+  --spotify-green: #1db954;
+  --spotify-green-highlight: #1ed760;
+  --bg: rgb(22, 22, 22);
+
+  --img-size: 300px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #eee;
+  font-family: 'Red Hat Mono', sans-serif;
+  background-color: var(--bg);
+  overflow-x: hidden;
+}
+
+/* Login page */
+.login-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#login-button {
+  border: none;
+  background-color: var(--spotify-green);
+  color: white;
+  padding: 1em 2em;
+  border-radius: 2em;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+#login-button:hover {
+  background-color: var(--spotify-green-highlight);
+}
+
+/* Playlist page */
+.playlist-grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(var(--img-size), 1fr));
+}
+
+.playlist-grid .playlist-item {
+  background-color: var(--bg);
+  height: var(--img-size);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.playlist-grid .playlist-item:hover,
+.playlist-grid .playlist-item.active {
+  z-index: 1;
+  transform: scale(1.1);
+  box-shadow: 0 1px 1px 1px rgb(0 0 0 / 20%);
+}
+
+.playlist-grid .playlist-item:hover {
+  z-index: 2;
+}
+
+.playlist-grid .playlist-item .playlist-item-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+.playlist-grid .playlist-item .playlist-item-title {
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  z-index: 3;
+  transition: 0.3s;
+}
+
+.playlist-grid .playlist-item:hover .playlist-item-img,
+.playlist-grid .playlist-item.active .playlist-item-img,
+.playlist-grid .playlist-item:hover .playlist-item-title,
+.playlist-grid .playlist-item.active .playlist-item-title {
+  opacity: 1;
 }
